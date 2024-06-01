@@ -11,28 +11,26 @@
 
 <body>
     <div id="app">
-        <p>{{ square }}</p>
-        <p>{{ count }}</p>
-        <button v-on:click="counter">変更ボタン</button>
+        <p>{{ number }}</p>
+        <p v-show="number % 2 === 0">偶数です</p>
+        <p v-show="number % 2 === 1">奇数です</p>
+        <button v-on:click="number++">plus1</button>
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data() {
                 return {
-                    count: 0,
+                    // isShow: true,
+                    number: 1
                 }
             },
-            methods: {
-                counter() {
-                    this.count++;
-                }
-            },
-            computed: {
-                square() {
-                    return this.count ** 2;
-                }
-            }
+            // methods: {
+            //     toggle() {
+            //         this.isShow = !this.isShow;
+            //         this.;
+            //     }
+            // }
         });
     </script>
 </body>
