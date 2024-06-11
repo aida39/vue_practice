@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-star-rating@1.6.3/dist/star-rating.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <star-rating v-model="rating"></star-rating>
+</div>
+
+<div id="star-rating">
+    <textarea v-model.trim="message" maxlength="50" placeholder="50文字以内で入力してください"></textarea>
+    <p>{{ message.length }}/50</p>
+</div>
+
+    <script>
+        const StarRating = window.VueStarRating.default;
+
+        Vue.component('star-rating', StarRating);
+        let app = new Vue({
+        el: '#app',
+        data: {
+        rating: 0
+        }
+        });
+
+        new Vue({
+        el: "#star-rating",
+        data: { message: "" }
+        });
+    </script>
+</body>
+
+</html>
