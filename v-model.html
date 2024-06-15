@@ -16,24 +16,7 @@
         <div>{{text|double}}</div>
         <div :class="text" class="normal">{{text}}</div>
     </div>
-    <script>
-        const vm = new Vue({
-            el: '#app',
-            data() {
-                return {
-                    text: '',
-                }
-            },
-            filters: {
-                upperfilter: function (value) {
-                    return value.toUpperCase();
-                },
-                double: function (value) {
-                    return value * 2;
-                },
-            }
-        });
-    </script>
+    <script src="js/v-model.js"></script>
 
     <style>
         .error{

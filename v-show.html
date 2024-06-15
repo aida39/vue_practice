@@ -12,9 +12,7 @@
 <body>
     <div id="app">
         <input type="text" v-model="text">
-        <div>{{text|upperfilter}}</div>
-        <div>{{text|double}}</div>
-        <div :class="text" class="normal">{{text}}</div>
+        <div>{{text}}</div>
     </div>
     <script>
         const vm = new Vue({
@@ -23,31 +21,9 @@
                 return {
                     text: '',
                 }
-            },
-            filters: {
-                upperfilter: function (value) {
-                    return value.toUpperCase();
-                },
-                double: function (value) {
-                    return value * 2;
-                },
             }
         });
     </script>
-
-    <style>
-        .error{
-            color: red;
-        }
-
-        .warning{
-            color: yellow;
-        }
-
-        .safe{
-            color: green;
-        }
-    </style>
 </body>
 
 </html>
