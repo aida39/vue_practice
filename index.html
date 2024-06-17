@@ -11,19 +11,32 @@
 
 <body>
     <div id="app">
-        <sample-component></sample-component>
-        <div id="app2">
-            <sample-component></sample-component>
-        </div>
+        <sample-component>
+            <div slot="content1">
+                <ul>
+                    <li>リスト1</li>
+                    <li>リスト2</li>
+                    <li>リスト3</li>
+                </ul>
+            </div>
+            <div slot="content2">
+                <button>ボタン１</button>
+            </div>
+        </sample-component>
     </div>
     <script>
+        Vue.component('sample-component', {
+            template: `
+                <div>
+                <header>ヘッダー</header>
+                <slot name="content1">デフォルトコンテンツ1</slot>
+                <slot name="content2">デフォルトコンテンツ2</slot>
+                <footer>フッター</footer>
+                </div>
+                `,
+        })
         new Vue({
-            el: '#app2',
-            components: {
-                'sample-component': {
-                    template: '<h1>サンプルコンポーネント</h1>'
-                }
-            }
+            el: '#app',
         })
     </script>
 </body>
