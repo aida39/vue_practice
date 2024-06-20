@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<body>
+    <div id="app">
+        <input type="text" v-model="keyword">
+        <table>
+            <tr v-for="user in filteredUsers" :key="user.id">
+                <td v-text="user.name"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                keyword: '',
+                users: [{
+                        name: '鈴木',
+                    },
+                    {
+                        name: '佐藤',
+                    },
+                    {
+                        name: '田中',
+                    },
+                    {
+                        name: '山田',
+                    },
+                ]
+            },
+            computed: {
+                filteredUsers: function () {
+
+                    let users = [];
+
+                    for (let i in this.users) {
+
+                        let user = this.users[i];
+
+                        if (user.name.indexOf(this.keyword) !== -1) {
+                            users.push(user);
+                        }
+
+                    }
+
+                    return users;
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
