@@ -12,30 +12,15 @@
 <body>
     <div id="app">
         <button @click="openModal">モーダルを開く</button>
-        <open-modal v-show="showContent" v-on:from-child="closeModal">slotの使用</open-modal>
+        <div id="overlay" v-show="showContent" @click="closeModal">
+            <div id="content" @click="stopEvent">
+                <p>これがモーダルウィンドウです。</p>
+                <p><button @click="closeModal">閉じる</button></p>
+            </div>
+        </div>
     </div>
-    <script>
-        Vue.component('open-modal', {
-            template: `
-                <div id="overlay" v-on:click="clickEvent">
-                    <div id="content" v-on:click="stopEvent">
-                        <p>
-                            <slot></slot>
-                        </p>
-                        <button v-on:click="clickEvent">閉じる</button>
-                    </div>
-                </div>
-                `,
-            methods: {
-                clickEvent: function () {
-                    this.$emit('from-child')
-                },
-                stopEvent: function(){
-                event.stopPropagation()
-                }
-            }
-        })
 
+    <script>
         new Vue({
             el: '#app',
             data: {
@@ -47,6 +32,9 @@
                 },
                 closeModal: function () {
                     this.showContent = false
+                },
+                stopEvent: function () {
+                    event.stopPropagation()
                 }
             }
         })
