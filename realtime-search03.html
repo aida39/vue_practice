@@ -25,8 +25,8 @@
             computed: {
                 filteredUsers: function () {
                     return this.users.filter(user => user.includes(this.keyword));
-                    // ユーザー名ににkeywordが含まれているかどうかをチェックして、含まれていればtrue、含まれていなければfalseとなります。
-                    // filterメソッドはtrueの要素だけを取り出して、配列を返します。
+                    // ユーザー名にkeywordが含まれているかどうかをチェックして、含まれていればtrue、含まれていなければfalseとなる
+                    // filterメソッドはtrueの要素だけを取り出して、配列を返す
                 }
             }
         })

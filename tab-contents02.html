@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab-box">
+            <div class="tab" :class="{ active: tab === 1 }" @click="tab = 1">タブ1</div>
+            <div class="tab" :class="{ active: tab === 2 }" @click="tab = 2">タブ2</div>
+            <div class="tab" :class="{ active: tab === 3 }" @click="tab = 3">タブ3</div>
+        </div>
+        <p v-show="tab === 1">コンテンツ1</p>
+        <p v-show="tab === 2">コンテンツ2</p>
+        <p v-show="tab === 3">コンテンツ3</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tab: 1
+            }
+        })
+    </script>
+    <style>
+        .tab-box {
+            display: flex;
+        }
+
+        .tab {
+            cursor: pointer;
+            width: 100px;
+            text-align: center;
+            color: #000;
+            background: #fff;
+            border: 1px solid #f2f2f2;
+        }
+
+        .active {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</body>
+
+</html>

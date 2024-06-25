@@ -12,7 +12,7 @@
 <body>
     <div id="app">
         <button @click="openModal">モーダルを開く</button>
-        <open-modal v-show="showContent" v-on:from-child="closeModal">slotの使用</open-modal>
+        <open-modal v-show="showContent" v-on:from-child="closeModal">スロットタグ内の記述をここで上書きしています</open-modal>
     </div>
     <script>
         Vue.component('open-modal', {
@@ -20,7 +20,7 @@
                 <div id="overlay" v-on:click="clickEvent">
                     <div id="content" v-on:click="stopEvent">
                         <p>
-                            <slot></slot>
+                            <slot>スロットタグ内の記述は上書きされます</slot>
                         </p>
                         <button v-on:click="clickEvent">閉じる</button>
                     </div>
